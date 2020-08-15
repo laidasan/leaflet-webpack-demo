@@ -1,5 +1,9 @@
 
 const path = require('path')
+
+// for vue
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+
 module.exports = {
     mode: 'production',
     entry: {
@@ -43,10 +47,18 @@ module.exports = {
                         }
                     },
                 ],
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
             }
 
         ]
     },
+    plugins: [
+        // make sure to include the plugin!
+        new VueLoaderPlugin()
+    ],
     resolve: {
         alias: {
             images: path.resolve(__dirname, 'images')
