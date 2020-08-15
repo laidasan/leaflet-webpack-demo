@@ -1,0 +1,16 @@
+{
+  "name": "104 map job extension dev test",
+  "version": "1.0",
+  "description": "104 map Extension! 08/12",
+  "permissions": ["storage"],
+
+  "content_scripts": [
+    {
+      "matches": ["https://time4jobs.104.com.tw/*","http://127.0.0.1:5500/*"],
+      "run_at": "document_end",
+      "js": ["dist/main.js"]
+    }
+  ],
+
+  "manifest_version": 2
+}
