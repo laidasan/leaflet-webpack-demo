@@ -4,6 +4,10 @@ const path = require('path')
 // for vue
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
+// for here routing api
+// const TerserPlugin = require('terser-webpack-plugin')
+
+
 module.exports = {
     mode: 'production',
     entry: {
@@ -20,6 +24,10 @@ module.exports = {
             {
                 test: /\.m?js$/,
                 // exclude: /(node_modules|bower_components)/,
+                exclude: file => (
+                    /node_modules/.test(file) &&
+                    !/\.vue\.js/.test(file)
+                ),
                 use: {
                     loader: 'babel-loader',
                     options: {
@@ -63,6 +71,16 @@ module.exports = {
         alias: {
             images: path.resolve(__dirname, 'images')
         }
-    }
+    },
+
+    // optimization: {
+    //     minimizer: [new TerserPlugin({
+    //         chunkFilter: (chunk) => {
+    //             // Exclude mapsjs chunk from the minification as it is already minified
+    //             if (/mapsjs/.test(chunk.name)) return false
+    //             return true
+    //         }
+    //     })],
+    // }
 
 }

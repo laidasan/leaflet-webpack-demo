@@ -7,7 +7,7 @@
 // check css sass / scss bundle
 // import CSS from '../style/style.css'
 // import SCSS from '../scss/main.scss'
-
+import '../scss/main.scss'
 
 // check my project css / scss
 // import '../google-extension/style/main.css'
@@ -30,6 +30,8 @@
 
 
 
+import jobList from '../job-list.json'
+
 
 
 // check vue 
@@ -43,3 +45,5 @@ new Vue({
     },
     render: h => h(App)
 }).$mount('#app')
+
+console.log(jobList)
